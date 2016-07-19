@@ -1,0 +1,11 @@
+#!/bin/sh
+id=$1
+python -c "
+import json
+with open('/app/argo.json', 'r+') as f:
+    data = json.load(f)
+    data['floats']['$id'] = 0
+    f.seek(0)
+    json.dump(data, f, indent=4)
+"
+update_floats

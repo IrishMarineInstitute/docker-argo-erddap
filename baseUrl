@@ -1,0 +1,3 @@
+#!/bin/sh
+baseUrl=$1
+sed -i.bak -e 's#^<baseUrl>.*</baseUrl>\s*$#<baseUrl>'"${baseUrl}"'</baseUrl>#' /usr/local/tomcat/content/erddap/setup.xml

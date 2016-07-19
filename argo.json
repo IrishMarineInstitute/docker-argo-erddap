@@ -1,0 +1,18 @@
+{
+    "logfile": "/tmp/argo_log.txt",
+    "file": {
+        "target": "/data/argos/{{float}}/profiles/{{basename}}"
+    },
+    "http": {
+        "url": "http://www.usgodae.org/ftp/outgoing/argo/dac/bodc/{{floatID}}/profiles/{{quality}}{{floatID}}_{{profileID}}.nc",
+        "padProfileID": 3
+    },
+    "floats": {
+        "6900233": 131
+    },
+    "kafka": {
+        "topic": "argo",
+        "hosts": "kafka01:9092,kafka02:9092,kafka03:9092",
+        "consumer_group": "argo"
+    }
+}

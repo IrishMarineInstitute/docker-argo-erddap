@@ -1,0 +1,23 @@
+#!/bin/sh
+id=$1
+python -c "
+import json
+with open('/app/argo.json', 'r+') as f:
+    data = json.load(f)
+    if '$id' in data['floats']:
+        del data['floats']['$id']
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.seek(f.tell())
+        f.truncate()
+    
+"
+if [ -e "/data/argos/$id" ]
+then
+    rm -rf "/data/argos/$id"
+    update_flag_key
+    flagKey=$(cat /app/flagKey)
+    url="http://localhost:8080/erddap/setDatasetFlag.txt?datasetID=argoFloats&flagKey=$flagKey"
+    echo $url
+    curl $url
+fi

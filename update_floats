@@ -1,0 +1,14 @@
+#!/bin/sh
+update_flag_key
+cd /app
+if [ -e flagKey ]
+then
+  flagKey=$(cat flagKey)
+  python argo_collector.py -c /app/argo.json \
+        --input http_no_scipy \
+        --output file \
+        --callback "http://localhost:8080/erddap/setDatasetFlag.txt?datasetID=argoFloats&flagKey=$flagKey"
+else
+  python argo_collector.py -c /app/argo.json \
+         --input http_no_scipy --output file
+fi
