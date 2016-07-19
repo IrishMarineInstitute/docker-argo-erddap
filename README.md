@@ -6,7 +6,7 @@
     docker build -t argo-erddap .
     docker run -d -p 8080:8080 --name=myargos argo-erddap
 
-You should now [have a running erddap][http://localhost:8080/erddap/index.html] , but without much data
+You should now [have a running erddap](http://localhost:8080/erddap/index.html) , but without much data
 
 ## Adding a float
 
