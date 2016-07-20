@@ -2,6 +2,8 @@
 
 5 minutes from now your [Argo floats](http://www.argo.ucsd.edu/) will be in [NOAA ERDDAP](https://coastwatch.pfeg.noaa.gov/erddap/).
 
+[![5 minutes to Argo floats in ERDDAP. Click to watch video](http://img.youtube.com/vi/vcOgb4HSGu8/0.jpg)](https://www.youtube.com/watch?v=vcOgb4HSGu8 "Click to watch video")
+
     git clone https://github.com/IrishMarineInstitute/docker-argo-erddap
     cd docker-argo-erddap
     docker build -t argo-erddap .
