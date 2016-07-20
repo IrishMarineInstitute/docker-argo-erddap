@@ -3,8 +3,17 @@
 5 minutes from now your [Argo floats](http://www.argo.ucsd.edu/) will be in [NOAA ERDDAP](https://coastwatch.pfeg.noaa.gov/erddap/).
 
     git clone https://github.com/IrishMarineInstitute/docker-argo-erddap
+    cd docker-argo-erddap
     docker build -t argo-erddap .
+
+Now you're ready to go!
+
     docker run -d -p 8080:8080 --name=myargos argo-erddap
+
+or
+
+    docker run -d -p 80:8080 --name=myargos argo-erddap
+
 
 You should now [have a running ERDDAP](http://localhost:8080/erddap/index.html) , but without much data
 
@@ -39,9 +48,8 @@ A job like this could run hourly or daily in cron, checking for updates to your 
 
 ## Exposing to the public
 
-To expose your ERDDAP on a public url, use the baseUrl function. Here we see the baseUrl being set after exposing ERDDAP on the default http port.
+To expose your ERDDAP on a public url, use the baseUrl function. Here we see the baseUrl being set on an insttance which exposes  ERDDAP on the default http port.
 
-    docker run -d -p 80:8080 --name=myargos argo-erddap
     docker exec -i -t myargos baseUrl http://idockan02.northeurope.cloudapp.azure.com
     docker stop myargos
     docker start myargos
