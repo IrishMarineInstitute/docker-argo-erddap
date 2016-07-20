@@ -1,6 +1,10 @@
 #!/bin/sh
-grep argoFloats /home/yourName/erddap/logs/log.txt | grep flagKey | grep http | tail -1 | sed -e 's/.*flagKey=//' > /app/flagKey.new
-if [ -s /app/flagKey.new ]
+# get the flag key from the erddap startup logs
+if [ -e "/home/yourName/erddap/logs/log.txt" ]
 then
-  mv /app/flagKey.new /app/flagKey
+    grep argoFloats /home/yourName/erddap/logs/log.txt | grep flagKey | grep http | tail -1 | sed -e 's/.*flagKey=//' > /app/flagKey.new
+    if [ -s /app/flagKey.new ]
+    then
+      mv /app/flagKey.new /app/flagKey
+    fi
 fi
