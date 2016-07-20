@@ -18,6 +18,6 @@ then
     update_flag_key
     flagKey=$(cat /app/flagKey)
     url="http://localhost:8080/erddap/setDatasetFlag.txt?datasetID=argoFloats&flagKey=$flagKey"
-    echo $url
     curl $url
+    echo
 fi
