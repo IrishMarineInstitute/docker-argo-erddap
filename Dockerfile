@@ -17,8 +17,8 @@ COPY index.jsp /usr/local/tomcat/webapps/ROOT/
 COPY content /usr/local/tomcat/content/
 RUN mkdir -p /home/yourName/erddap
 COPY argo.json /app/argo.json
-COPY update_floats /usr/local/bin/
 COPY update_flag_key /usr/local/bin/
+COPY update_floats /usr/local/bin/
 COPY add_float /usr/local/bin/
 COPY del_float /usr/local/bin/
 COPY baseUrl /usr/local/bin
