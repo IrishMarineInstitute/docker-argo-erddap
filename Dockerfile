@@ -1,7 +1,7 @@
 FROM tomcat:8-jre8
 MAINTAINER fullergalway
 RUN rm -rf /usr/local/tomcat/webapps/ROOT /usr/local/tomcat/webapps/examples /usr/local/tomcat/webapps/docs
-RUN wget -O /usr/local/tomcat/webapps/erddap.war https://coastwatch.pfeg.noaa.gov/erddap/download/erddap1.73.war
+RUN wget -O /usr/local/tomcat/webapps/erddap.war https://github.com/BobSimons/erddap/releases/download/v1.74/erddap.war
 RUN wget -O /tmp/fonts.zip "http://coastwatch.pfeg.noaa.gov/erddap/download/BitstreamVeraSans.zip"
 RUN unzip -d /usr/share/fonts /tmp/fonts.zip
 RUN wget -O /tmp/content.zip http://coastwatch.pfeg.noaa.gov/erddap/download/erddapContent.zip
@@ -21,5 +21,5 @@ COPY update_flag_key /usr/local/bin/
 COPY update_floats /usr/local/bin/
 COPY add_float /usr/local/bin/
 COPY del_float /usr/local/bin/
-COPY baseUrl /usr/local/bin
+COPY baseUrl /usr/local/bin/
 RUN update_floats
